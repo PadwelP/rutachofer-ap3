@@ -1,0 +1,7 @@
+{
+  "name": "rutachofer-s3",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

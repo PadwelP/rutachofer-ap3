@@ -1,0 +1,32 @@
+<ion-app>
+  <ion-split-pane contentId="main-content">
+    <!-- MENÚ LATERAL (ion-menu) con encabezado/logo, navegación e iconos -->
+    <ion-menu contentId="main-content" type="overlay">
+      <ion-content>
+        <div class="menu-header">
+          <img src="assets/logo.svg" alt="RutaChofer" />
+          <h2>RutaChofer</h2>
+          <p>App de viajes para choferes</p>
+        </div>
+
+        <ion-list id="menu-list" lines="none">
+          <ion-menu-toggle auto-hide="false" *ngFor="let p of appPages">
+            <ion-item routerDirection="root" [routerLink]="[p.url]" detail="false" routerLinkActive="selected">
+              <ion-icon slot="start" [name]="p.icon"></ion-icon>
+              <ion-label>{{ p.title }}</ion-label>
+            </ion-item>
+          </ion-menu-toggle>
+        </ion-list>
+
+        <div class="menu-foot">
+          <ion-item lines="none" detail="false" button>
+            <ion-icon slot="start" name="log-out-outline"></ion-icon>
+            <ion-label>Cerrar sesión</ion-label>
+          </ion-item>
+        </div>
+      </ion-content>
+    </ion-menu>
+
+    <ion-router-outlet id="main-content"></ion-router-outlet>
+  </ion-split-pane>
+</ion-app>

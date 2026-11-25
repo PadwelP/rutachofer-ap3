@@ -1,0 +1,25 @@
+.mapa-wrap {
+  overflow: hidden;
+  background: #dfe7ef;
+  position: relative;
+  touch-action: none; // deja que el gesto de pinch controle el zoom
+}
+.mapa {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+  transform-origin: center center;
+  transition: transform 0.05s linear;
+}
+.mapa-hint {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background: rgba(20, 59, 102, 0.75);
+  color: #fff;
+  font-size: 11px;
+  text-align: center;
+  padding: 4px 0;
+}
+.acciones ion-button { margin-bottom: 8px; }

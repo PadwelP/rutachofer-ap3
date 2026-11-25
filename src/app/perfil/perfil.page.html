@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Perfil</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- COMPONENTE: ion-card con los datos del chofer -->
+  <ion-card>
+    <ion-card-content class="perfil-top">
+      <ion-icon name="person-circle" class="avatar"></ion-icon>
+      <div>
+        <h2>Juan Rodríguez</h2>
+        <p>Chofer · Ficha 014</p>
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <!-- COMPONENTE: ion-list + GESTO 4: Long-press sobre un ítem -> menú contextual -->
+  <ion-list>
+    <ion-item #itemLP *ngFor="let o of opciones" button detail="true">
+      <ion-icon slot="start" [name]="o.icon" color="primary"></ion-icon>
+      <ion-label>{{ o.titulo }}</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <p class="hint">
+    <ion-icon name="finger-print"></ion-icon>
+    Mantén pulsada una opción (long-press) para abrir su menú contextual.
+  </p>
+</ion-content>

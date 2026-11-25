@@ -1,0 +1,22 @@
+.perfil-top {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.perfil-top .avatar {
+  font-size: 56px;
+  color: #143b66;
+}
+.perfil-top h2 { margin: 0; font-weight: 700; color: #143b66; }
+.perfil-top p { margin: 2px 0 0; color: #5a6775; font-size: 13px; }
+
+.hint {
+  text-align: center;
+  color: #5a6775;
+  font-size: 12.5px;
+  margin: 18px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}

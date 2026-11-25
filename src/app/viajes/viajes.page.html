@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start"><ion-menu-button></ion-menu-button></ion-buttons>
+    <ion-title>Mis viajes</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- GESTO 2: Pull-to-refresh (ion-refresher) -->
+  <ion-refresher slot="fixed" (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content pullingIcon="arrow-down-circle-outline"
+      pullingText="Desliza para actualizar"
+      refreshingSpinner="crescent"
+      refreshingText="Actualizando viajes...">
+    </ion-refresher-content>
+  </ion-refresher>
+
+  <!-- COMPONENTE: ion-card (resumen del día) -->
+  <ion-card class="resumen">
+    <ion-card-header>
+      <ion-card-subtitle>Hoy</ion-card-subtitle>
+      <ion-card-title>{{ viajes.length }} viajes asignados</ion-card-title>
+    </ion-card-header>
+    <ion-card-content>
+      Tira hacia abajo para actualizar. Desliza una tarjeta a la izquierda para eliminarla.
+    </ion-card-content>
+  </ion-card>
+
+  <!-- COMPONENTE: ion-list + GESTO 1: Swipe para eliminar (ion-item-sliding) -->
+  <ion-list>
+    <ion-item-sliding *ngFor="let v of viajes">
+      <ion-item button detail (click)="abrir(v)">
+        <ion-icon slot="start" name="cube-outline" color="primary"></ion-icon>
+        <ion-label>
+          <h2>{{ v.origen }} → {{ v.destino }}</h2>
+          <p>{{ v.cliente }} · {{ v.bultos }} bultos</p>
+        </ion-label>
+        <ion-badge slot="end" [color]="v.estado === 'Asignado' ? 'warning' : 'medium'">{{ v.estado }}</ion-badge>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option color="danger" (click)="eliminar(v)">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+
+  <p class="vacio" *ngIf="viajes.length === 0">No quedan viajes. Tira hacia abajo para recargar.</p>
+</ion-content>

@@ -1,0 +1,25 @@
+.menu-header {
+  padding: 30px 18px 20px;
+  background: #143b66;
+  color: #fff;
+  text-align: center;
+}
+.menu-header img { width: 74px; height: 74px; }
+.menu-header h2 { margin: 10px 0 2px; font-size: 20px; font-weight: 700; }
+.menu-header p { margin: 0; font-size: 12px; opacity: 0.85; }
+
+ion-menu ion-list { padding-top: 10px; }
+ion-menu ion-icon { color: #5a6775; }
+ion-menu ion-item.selected {
+  --background: #eef3f8;
+  --color: #143b66;
+  font-weight: 600;
+}
+ion-menu ion-item.selected ion-icon { color: #143b66; }
+
+.menu-foot {
+  position: absolute;
+  bottom: 12px;
+  width: 100%;
+  border-top: 1px solid #eef1f4;
+}
